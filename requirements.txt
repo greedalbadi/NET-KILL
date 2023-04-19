@@ -1,0 +1,5 @@
+PyQt5
+PyQt5-Qt5
+PyQt5-sip
+pywin32
+random
