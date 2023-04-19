@@ -14,6 +14,7 @@ import sys, res, os
 from PyQt5.QtWidgets import QLineEdit
 
 from src import Greedy_ddos as ddos
+from src import check_port
 import random, threading, socket
 class Ui_Form(object):
 
@@ -176,6 +177,11 @@ class Form(QtWidgets.QWidget, Ui_Form, ddos):
         if self.running == False:
             if self.lineEdit.text() == "" or self.lineEdit.text() == "" == 0 or self.lineEdit.text() == "":
                 self.label_6.setText("Somthing is missing")
+
+            elif check_port(self.lineEdit.text(), self.lineEdit_2.text()) == False:
+
+                self.label_6.setText("Host\\port isn't active")
+
             else:
                 self.running = True
                 self.killnet()
@@ -262,4 +268,3 @@ if __name__ == "__main__":
     w = Form()
     w.show()
     sys.exit(app.exec_())
-    #pip install pywin32
